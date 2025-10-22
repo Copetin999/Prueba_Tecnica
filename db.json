@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "name": "Juan Pérez",
+      "email": "juan@example.com",
+      "password": "abc123"
+    },
+    {
+      "id": "efcd",
+      "username": "felipe",
+      "email": "godpipe85@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "movies": [
+    {
+      "id": "1",
+      "title": "Inception",
+      "year": "2010",
+      "director": "Christopher Nolan",
+      "genre": "Ciencia Ficción",
+      "poster": "https://m.media-amazon.com/images/I/51s+zAoT6jL._AC_SY679_.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Interstellar",
+      "year": "2014",
+      "director": "Christopher Nolan",
+      "genre": "Aventura",
+      "poster": "https://m.media-amazon.com/images/I/81o1+qV+ZCL._AC_SY679_.jpg"
+    }
+  ]
+}
