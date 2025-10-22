@@ -17,12 +17,24 @@
       "username": "felipe",
       "email": "godpipe85@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "a05b",
+      "username": "garcia",
+      "email": "garcia@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "f08f",
+      "username": "felipe",
+      "email": "copetepalaciosandresfelipe@gmail.com",
+      "password": "123456"
     }
   ],
   "movies": [
     {
       "id": "1",
-      "title": "Inception",
+      "title": "HOLASS",
       "year": "2010",
       "director": "Christopher Nolan",
       "genre": "Ciencia Ficción",

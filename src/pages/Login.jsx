@@ -15,52 +15,69 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await getUserByEmailAndPassword(formData.email, formData.password);
+
+    const user = await getUserByEmailAndPassword(
+      formData.email,
+      formData.password
+    );
+
     if (user) {
       login(user);
       navigate("/movies");
     } else {
-      setError("Credenciales incorrectas");
+      setError("❌ Credenciales incorrectas, intenta nuevamente");
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-[80vh]">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg p-8 w-96 space-y-4"
+        className="bg-white shadow-2xl rounded-2xl p-8 w-96 space-y-5 transform hover:scale-[1.02] transition"
       >
-        <h2 className="text-2xl font-bold text-center text-blue-600">Iniciar Sesión</h2>
+        <h2 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          🎬 Iniciar Sesión
+        </h2>
 
-        {error && <div className="text-red-500 text-sm text-center">{error}</div>}
+        {error && (
+          <div className="text-red-600 text-center bg-red-100 p-2 rounded-lg">
+            {error}
+          </div>
+        )}
 
         <div>
-          <label className="block text-gray-700 text-sm font-medium">Correo</label>
+          <label className="block text-gray-700 text-sm font-semibold mb-1">
+            Correo electrónico
+          </label>
           <input
             type="email"
             name="email"
             onChange={handleChange}
-            className="w-full border rounded p-2 focus:ring-2 focus:ring-blue-400 outline-none"
+            className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-purple-500 outline-none"
+            placeholder="ejemplo@correo.com"
             required
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 text-sm font-medium">Contraseña</label>
+          <label className="block text-gray-700 text-sm font-semibold mb-1">
+            Contraseña
+          </label>
           <input
             type="password"
             name="password"
             onChange={handleChange}
-            className="w-full border rounded p-2 focus:ring-2 focus:ring-blue-400 outline-none"
+            className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-purple-500 outline-none"
+            placeholder="••••••••"
             required
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white rounded py-2 hover:bg-blue-700 transition"
+          className="w-full py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition"
         >
-          Iniciar sesión
+          Iniciar Sesión
         </button>
       </form>
     </div>
