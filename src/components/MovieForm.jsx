@@ -2,8 +2,6 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-
-
 const MovieSchema = Yup.object().shape({
   title: Yup.string().required("El título es obligatorio"),
   year: Yup.number()
@@ -14,15 +12,20 @@ const MovieSchema = Yup.object().shape({
   genre: Yup.string().required("El género es obligatorio"),
 });
 
-export default function MovieForm({ initialValues, onSubmit }) {
+export default function MovieForm({ initialValues, onSubmit, onCancel }) {
   return (
     <Formik
       initialValues={initialValues}
+      enableReinitialize
       validationSchema={MovieSchema}
       onSubmit={onSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className="space-y-4 bg-white p-4 rounded-xl shadow">
+        <Form className="space-y-4 bg-white p-6 rounded-2xl shadow-md border border-gray-100 max-w-lg mx-auto">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
+            {initialValues.id ? "Editar Película" : "Agregar Nueva Película"}
+          </h2>
+
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Título
@@ -39,9 +42,7 @@ export default function MovieForm({ initialValues, onSubmit }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Año
-            </label>
+            <label className="block text-sm font-medium text-gray-700">Año</label>
             <Field
               name="year"
               type="number"
@@ -84,13 +85,29 @@ export default function MovieForm({ initialValues, onSubmit }) {
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-          >
-            {isSubmitting ? "Guardando..." : "Guardar Película"}
-          </button>
+          <div className="flex justify-between mt-4">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            >
+              {isSubmitting
+                ? "Guardando..."
+                : initialValues.id
+                ? "Actualizar"
+                : "Guardar"}
+            </button>
+
+            {initialValues.id && (
+              <button
+                type="button"
+                onClick={onCancel}
+                className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
+              >
+                Cancelar
+              </button>
+            )}
+          </div>
         </Form>
       )}
     </Formik>

@@ -35,6 +35,20 @@
       "director": "Christopher Nolan",
       "genre": "Aventura",
       "poster": "https://m.media-amazon.com/images/I/81o1+qV+ZCL._AC_SY679_.jpg"
+    },
+    {
+      "id": "ee18d720-6658-46a0-9dcb-4cb52a927cdc",
+      "title": "Las maravillosas aventuras ",
+      "year": 2000,
+      "director": "Mark Ruso",
+      "genre": "fantasia"
+    },
+    {
+      "id": "f6920eff-279a-4c38-9c3f-28e403b27738",
+      "title": "Barbie y El Castillo de Diamantes",
+      "year": 2008,
+      "director": "Elise Allen",
+      "genre": "animacion, fantasia y musical infantil"
     }
   ]
 }
